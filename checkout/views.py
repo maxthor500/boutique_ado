@@ -9,7 +9,10 @@ from .forms import OrderForm
 from .models import Order, OrderLineItem
 
 from products.models import Product
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 from bag.contexts import bag_contents
+
 import stripe
 import json
 
@@ -69,7 +72,9 @@ def checkout(request):
                         )
                         order_line_item.save()
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for size, quantity in item_data[
+                                                        'items_by_size'
+                                                        ].items():
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
