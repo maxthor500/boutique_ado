@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8xd@f9*&sj)^5e!e#$9z83)3r^zyov6%stnif@9l=7cdw4#y%c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['maxthor-bouthique-ado.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -121,7 +121,7 @@ WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        # 'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 else:
     DATABASES = {
